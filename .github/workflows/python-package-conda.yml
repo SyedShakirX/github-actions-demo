@@ -8,11 +8,13 @@ on:
         required: true
         description: "First Number"
         type: number
+        default: 1000
 
       num2:
         required: true
         description: "Second Number"
         type: number 
+        default: 2000
 
 
 
