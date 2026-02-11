@@ -1,16 +1,49 @@
-name: First Workflow
-on: push
+#This worlflow Showcases the use of various variables and secrets
+
+name: Workflow of Variables
+on: 
+  workflow_dispatch:
+    inputs:
+      num1:
+        required: true
+        description: "First Number"
+        type: number
+
+      num2:
+        required: true
+        description: "Second Number"
+        type: number 
+
+
+
+env:
+  workflow_name: "Workflow of Variables"
 
 jobs:
-  first_job:
+  variable_job:
     runs-on: ubuntu-latest
     steps:
-      - name: A simple bash command
-        run: |
-          echo "Hello This Is My First Workflow"
-          echo "The current repo is ${{github.repository}}"
+    - name: Use Context Variable from Github Metadata
+      run: |
+        echo "The name of this repo is: ${{ github.repository }}"
+
+    
+    - name: Use Single Workflow Variables
+      env:
+        step_name: "Use Single Workflow Variables"
+      run: |
+        echo "The workflow is: $workflow_name & the step name is $step_name "
 
 
+    - name: Use of Input Variables
+                   
+      run: |
+        echo "${{ inputs.num1 }} + ${{ inputs.num2}} = $((${{ inputs.num1 }} + ${{ inputs.num2}}))"
 
-          
-      
+
+  secrets_job:
+    runs-on: windows-latest
+    steps:
+    - name: Use of secrets
+      run: |
+        echo "This text is a secret --> ${{secrets.mysecret}} # we wont be able to see this (we will see **** in console) but at least we know secret is loaded
