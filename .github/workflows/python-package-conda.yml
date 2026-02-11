@@ -8,5 +8,9 @@ jobs:
       - name: A simple bash command
         run: |
           echo "Hello This Is My First Workflow"
-          echo "The current repo is ${{github.repository}}
+          echo "The current repo is ${{github.repository}}"
+
+
+
+          
       
