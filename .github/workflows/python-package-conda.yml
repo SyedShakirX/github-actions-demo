@@ -1,5 +1,5 @@
 name: First Workflow
-on: workflow_dispatch
+on: push
 
 jobs:
   first_job:
@@ -8,4 +8,5 @@ jobs:
       - name: A simple bash command
         run: |
           echo "Hello This Is My First Workflow"
+          echo "The current repo is ${{github.repository}}
       
