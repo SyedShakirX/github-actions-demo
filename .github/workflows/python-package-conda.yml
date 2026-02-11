@@ -46,4 +46,4 @@ jobs:
     steps:
     - name: Use of secrets
       run: |
-        echo "This text is a secret --> ${{secrets.mysecret}} # we wont be able to see this (we will see **** in console) but at least we know secret is loaded
+        echo "This text is a secret --> ${{secrets.mysecret}} # we wont be able to see this (we will see **** in console) but at least we know secret is loaded"
